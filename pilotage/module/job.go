@@ -216,6 +216,8 @@ func (j *Job) PodTemplates(randomContainerName string) *apiv1.Pod {
 						Value: env_value,
 					}
 					result.Spec.Containers[0].Env = append(result.Spec.Containers[0].Env, env)
+				}else{
+					j.Log(fmt.Sprintf("Not Found output: %s",env_key),true,true)
 				}
 			}
 		}
